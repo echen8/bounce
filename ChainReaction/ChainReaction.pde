@@ -15,19 +15,19 @@ void setup() {
 void draw() {
   background(0);
   for ( int i = 0; i < balls.length; i++ ) {
-    if ( balls[i].state == 0 ) {
-      balls[i].move();
-    }
-    else {
-       balls[i].rad += 1;
-    }
+    fill( balls[i].cr, balls[i].cg, balls[i].cb );
+    ellipseMode(RADIUS);
+    ellipse( balls[i].x, balls[i].y, balls[i].rad, balls[i].rad );
+    balls[i].move();
   }
 }
 
 void mouseClicked() {
   if ( !reactionStarted ) {
+    // Set balls[0] as the host/start of chain reaction.
     balls[0].x = mouseX;
     balls[0].y = mouseY;
-    balls[0].state = 1;
+    balls[0].dx = 0;
+    balls[0].dx = 0;
   }
 }

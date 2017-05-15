@@ -3,16 +3,17 @@ class Ball {
   float x, y;
   float rad;
   color c;
+  int cr, cg, cb;
   float dx, dy;
   int state; // 0 = normal, 1 = reacted
 
   Ball() {
-    x = random( ( width - rad ) + rad/2 );
-    y = random( ( height - rad ) + rad/2 );
+    x = random( rad, width - rad );
+    y = random( rad, height - rad );
     rad = 10;
     c = color( random(256), random(256), random(256) );
-    dx = random(10) - 5;
-    dy = random(10) - 5;
+    dx = random(-5,5);
+    dy = random(-5,5);
     state = 0;
   }
 
